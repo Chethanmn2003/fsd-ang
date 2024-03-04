@@ -1,0 +1,31 @@
+<div *ngIf="isloggedIn">
+<h2>Welcome, {{currentuser.name}}!</h2>
+<div>
+
+
+  <div>
+    <form (ngSubmit)="createTask()" *ngIf="isloggedIn">
+      <div class="tweet-wrap">
+          <textarea placeholder="New Task" type="text" name="taskname" [(ngModel)]="newTask.taskname">
+          </textarea>
+      
+          <button>
+              Add Task
+          </button>
+      </div>
+  </form>
+
+  <div *ngIf="tasks.length > 0">
+    <h3>Your Tasks:</h3>
+    <ul>
+      <li *ngFor="let task of tasks">
+        <span>{{ task.taskname }}</span>
+       
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="!isloggedIn">
+  <p>Please log in to view your tasks.</p>
+</div>

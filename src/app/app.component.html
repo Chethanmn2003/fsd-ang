@@ -1,0 +1,26 @@
+<nav class="navbar" [ngClass]="{'navbar-sticky': isSticky}">
+    <div class="navbar-container">
+      <div class="logo">Bucket List </div>
+      <div class="menu">
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/myDashboard">My Todo List</a></li>
+          <li><a routerLink="/about-me">About Me</a></li>
+          <li *ngIf="!isloggedIn"><a routerLink="/login">Login</a></li>
+         
+        </ul>
+      </div>
+      <div class="user-info" *ngIf="isloggedIn">
+        <span>{{ currentuser.name }}</span>
+        <button (click)="logout()"> <i class='bx bx-log-out-circle'></i></button>
+       
+      </div>
+    
+    </div>
+  </nav>
+  
+
+
+
+
+<router-outlet></router-outlet>
